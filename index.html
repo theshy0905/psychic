@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>6点</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+			}
+
+			a,
+			img {
+				border: 0;
+			}
+
+			body {
+				overflow: hidden;
+				background: #ffe;
+			}
+		</style>
+
+		<script>
+			window.console = window.console || function(t) {};
+		</script>
+
+		<script src="./css/prefixfree.min.js"></script>
+		<style type="text/css">
+			@font-face {
+				font-family: digit;
+				src: url("digital-7_mono.ttf") format("truetype");
+			}
+		</style>
+		<link href="./css/default.css" tppabs="./css/default.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="./js/jquery.js" tppabs="./js/jquery.js"></script>
+		<script type="text/javascript" src="./js/garden.js" tppabs="./js/garden.js"></script>
+		<script type="text/javascript" src="./js/functions.js" tppabs="./js/functions.js"></script>
+	</head>
+	<body>
+		<canvas id="canvas-club" width="1136" height="4488"></canvas>
+		<script src="./js/stopExecutionOnTimeout.js"></script>
+		<script>
+			var c = document.getElementById("canvas-club");
+			var ctx = c.getContext("2d");
+			var w = c.width = window.innerWidth;
+			var h = c.height = window.innerHeight;
+			var clearColor = 'rgba(0, 0, 0, .1)';
+			var max = 30;
+			var drops = [];
+
+			function random(min, max) {
+				return Math.random() * (max - min) + min;
+			}
+
+			function O() {}
+
+			O.prototype = {
+				init: function() {
+					this.x = random(0, w);
+					this.y = 0;
+					this.color = 'hsl(180, 100%, 50%)';
+					this.w = 2;
+					this.h = 1;
+					this.vy = random(4, 5);
+					this.vw = 3;
+					this.vh = 1;
+					this.size = 2;
+					this.hit = random(h * .8, h * .9);
+					this.a = 1;
+					this.va = .96;
+				},
+				draw: function() {
+					if (this.y > this.hit) {
+						ctx.beginPath();
+						ctx.moveTo(this.x, this.y - this.h / 2);
+
+						ctx.bezierCurveTo(
+							this.x + this.w / 2, this.y - this.h / 2,
+							this.x + this.w / 2, this.y + this.h / 2,
+							this.x, this.y + this.h / 2);
+
+						ctx.bezierCurveTo(
+							this.x - this.w / 2, this.y + this.h / 2,
+							this.x - this.w / 2, this.y - this.h / 2,
+							this.x, this.y - this.h / 2);
+
+						ctx.strokeStyle = 'hsla(180, 100%, 50%, ' + this.a + ')';
+						ctx.stroke();
+						ctx.closePath();
+
+					} else {
+						ctx.fillStyle = this.color;
+						ctx.fillRect(this.x, this.y, this.size, this.size * 5);
+					}
+					this.update();
+				},
+				update: function() {
+					if (this.y < this.hit) {
+						this.y += this.vy;
+					} else {
+						if (this.a > .03) {
+							this.w += this.vw;
+							this.h += this.vh;
+							if (this.w > 100) {
+								this.a *= this.va;
+								this.vw *= .98;
+								this.vh *= .98;
+							}
+						} else {
+							this.init();
+						}
+					}
+
+				}
+			}
+
+			function resize() {
+				w = c.width = window.innerWidth;
+				h = c.height = window.innerHeight;
+			}
+
+			function setup() {
+				for (var i = 0; i < max; i++) {
+					(function(j) {
+						setTimeout(function() {
+							var o = new O();
+							o.init();
+							drops.push(o);
+						}, j * 200)
+					}(i));
+				}
+			}
+
+
+			function anim() {
+				ctx.fillStyle = clearColor;
+				ctx.fillRect(0, 0, w, h);
+				for (var i in drops) {
+					drops[i].draw();
+				}
+				requestAnimationFrame(anim);
+			}
+
+
+			window.addEventListener("resize", resize);
+
+			setup();
+			anim();
+			//@ sourceURL=pen.js
+		</script>
+
+
+		<script>
+			if (document.location.search.match(/type=embed/gi)) {
+				window.parent.postMessage("resize", "*");
+			}
+		</script>
+		<title>亲爱的</title>
+		<meta name="keywords" content="有他,有她,有TA,惊喜,礼物,创意,表白,表白网,暗恋,热恋,">
+		<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
+
+		<style type="text/css">
+			@font-face {
+				font-family: digit;
+				src: url("digital-7_mono.ttf") format("truetype");
+			}
+		</style>
+		<link href="./default.css" tppabs="./css/default.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="./js/jquery.js" tppabs="./js/jquery.js"></script>
+		<script type="text/javascript" src="./js/garden.js" tppabs="./js/garden.js"></script>
+		<script type="text/javascript" src="./js/functions.js" tppabs="./js/functions.js"></script>
+		<div id="mainDiv">
+			<div id="content" style="width: 1110px; height: 625px; margin-top: 337px; margin-left: 10px;">
+				<div id="code" style="margin-top: 112.5px;">
+					<span class="comments">小芳：</span><br>
+					<span class="space"><span class="comments">你还好么！</span></span><br>
+					<span class="space"><span
+							class="comments">时间越来越长，我的思念也越来越深，我很想找一个万籁俱寂的深夜或一个阳光明媚的早晨，把许多心底的惆怅、寂寞向你倾诉。
+							寂寞人生爱无休，寂寞是爱永远的主题。</span><br>
+						<span class="space"><span class="comments">亲爱的
+								微笑，爱上你我的生活充满激情.
+							</span><br>
+							<span class="space"><span class="comments">亲爱的
+									，保留一个最浪漫的故事，给你一声祝福，一个kiss，爱你直到永远！亲爱的，理解我吗？我不是弱智，但我会傻傻的爱你到永远。亲爱的
+									，我只想和你白头到老，美轮美奂的你编织着神话，创造着奇迹，只因让我遇到你。</span><br>
+								<span class="space"><span class="comments">2022.12.8</span><br>
+								</span></span></span></span>__
+				</div>
+				<div id="loveHeart">
+					<canvas id="garden" width="670" height="625"></canvas>
+					<div id="words" style="position: absolute; top: 532px; left: 520px;">
+						<div id="messages" style="display: block;">
+							亲爱的
+							：
+							<div id="elapseClock"><span class="digit">928</span> days <span class="digit">21</span>
+								hours <span class="digit">08</span> minutes <span class="digit">02</span> seconds</div>
+						</div>
+						<div id="loveu" style="display: block;">
+							永远爱你，一辈子，不分离！<br>
+							<div class="signature">- 小董
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var offsetX = $("#loveHeart").width() / 2;
+			var offsetY = $("#loveHeart").height() / 2 - 55;
+			var together = new Date();
+			together.setFullYear(2020, 12, -30);
+			together.setHours(0);
+			together.setMinutes(0);
+			together.setSeconds(0);
+			together.setMilliseconds(0);
+
+			if (!document.createElement('canvas').getContext) {
+				var msg = document.createElement("div");
+				msg.id = "errorMsg";
+				msg.innerHTML = "提醒您：IE低版本用户请一边惭愧去吧^_^<br/>" +
+					"推荐使用浏览器 <a href='#' target='_blank'>Chrome 14+</a>" +
+					"/<a href='#' target='_blank'>IE 9+</a>" +
+					"/<a href='#' target='_blank'>Firefox 7+</a>" +
+					"/Safari 4+<br/>请先升级您的浏览器，效果很炫哦~~";
+				document.body.appendChild(msg);
+				$("#code").css("display", "none")
+				$("#copyright").css("position", "absolute");
+				$("#copyright").css("bottom", "10px");
+				document.execCommand("stop");
+			} else {
+				setTimeout(function() {
+					adjustWordsPosition();
+					startHeartAnimation();
+				}, 5000);
+
+				timeElapse(together);
+				setInterval(function() {
+					timeElapse(together);
+				}, 500);
+
+				adjustCodePosition();
+				$("#code").typewriter();
+			}
+		</script>
+		<script type="text/javascript">
+			document.oncontextmenu = function() {
+				return false;
+			};
+			document.onkeydown = function() {
+				var e = window.event || arguments[0];
+				if (e.keyCode == 123) {
+					return false;
+				} else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) {
+					return false;
+				} else if ((e.shiftKey) && (e.keyCode == 121)) {
+					return false;
+				} else if (event.ctrlKey && window.event.keyCode == 85) {
+					return false;
+				}
+			};
+		</script>
+
+	</body>
+</html>
